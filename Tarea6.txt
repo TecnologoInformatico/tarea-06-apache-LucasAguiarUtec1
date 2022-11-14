@@ -1,0 +1,50 @@
+ssh ubuntu@144.22.153.18
+
+1-
+	mkdir repositorio
+	cd repositorio
+	git clone https://github.com/TecnologoInformatico/AdmInf-web.git
+2-
+	sudo apt update
+
+3-
+	sudo apt install apache2
+
+4-
+	mkdir var
+	mkdir www
+	mkdir laguiar
+5-
+	sudo chown ubuntu
+
+6-
+	sudo cp 000-default.conf laguiar.conf
+	sudo nano laguiar.conf
+	ServerName www.laguiar.tecnologoinformatico.com
+        ServerAdmin lucas.laguiar@estudiantes.utec.edu.uy
+        DocumentRoot /var/www/laguiar
+
+7-
+	sudo nano /etc/hosts
+	127.0.0.1 www.laguiar.tecnologoinformatico.com
+
+8-
+	sudo systemctl reload apache2
+
+9-
+	sudo cp -r ./repositorio/AdmInf-web /var/www/laguiar
+
+10-
+
+
+-------------------------------------------	
+Activar servidor 
+sudo a2ensite laguiar.conf
+sudo systemctl reload apache2
+curl laguiar.tecnologoinformatico.com
+-------------------------------------------
+
+
+
+
+
